@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title> hello there  </title>
+
+        <script src="angular.min.js"></script>
+        <script src="MoviesApp.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+    </head>
+    <body ng-app="MoviesApp">
+        <div ng-controller="MovieController" class="container">
+            <h1>My Movie App .. </h1>
+
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Rating</th>
+                <th>Year</th>
+                <th>Plot</th>
+                <th>Action</th>
+            <tr>
+
+            <tr>
+                <th> <input type="text" ng-model="movie.title" /> </th>
+                <th><input type="text" ng-model="movie.rating" /></th>               
+                <th><input type="text" ng-model="movie.year" /></th>
+                <th><input type="text" ng-model="movie.plot" /></th>
+                <th>
+                    <button ng-click="addMovie(movie);" class="btn btn-success"> <span class="glyphicon glyphicon-plus"> </span> </button>
+
+                    <button class="btn btn-primary" ng-click="updateMovie()"> <span class="glyphicon glyphicon-check"> </span> </button>
+                </th>
+            <tr>
+
+        </thead>    
+        <tbody>
+            <tr ng-repeat="movie in movies" >
+                <td>{{movie.title}}</td>
+                <td>{{movie.rating}}</td>
+                <td>{{movie.year}}</td>
+                <td>{{movie.plot}}</td>
+                <td>
+                    <button class="btn btn-danger" ng-click="removeMovie($index)"> <span class="glyphicon glyphicon-remove"> </span> </button>
+
+                    <button class="btn btn-warning" ng-click="selectMovie(movie)"> <span class="glyphicon glyphicon-pencil"> </span> </button>
+                </td>   
+            </tr>
+        </tbody>
+        </table>
+
+        </div>        
+    </body>
+</html>
